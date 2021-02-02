@@ -1,0 +1,23 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style="font-weight: 900;">Voting Officer Login</a>
+
+    <a class="btn btn-success" href="{% url 'CryptoBallotsHomeApp:home' %}">Home</a>
+
+</nav>
+<div style="padding: 20px;width: 300px;background-color: #fe6e00;display: block;margin: auto;
+  margin-top: 250px">
+  <h1 style="color: white;text-align: center">Voting Officer Login</h1>
+  <form method="post" action="{% url 'VotingApp:officer-login-success' %}">
+    {% csrf_token %}
+    <input type="text" style="margin-bottom: 15px" class="form-control" placeholder="OfficerID" name="officer-id">
+    <input type="password" class="form-control" placeholder="password" name="password">
+    <input type="submit" style="display: block;margin: auto;margin-top: 10px" class="btn btn-success" >
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style="font-weight: 900;">Voting Window</a>
+    <a class="btn btn-danger" href="{% url 'VotingApp:logout' %}">Logout</a>
+</nav>
+
+<div style="padding: 20px;width: 800px;background-color: #fe6e00;display: block;margin: auto;
+  margin-top: 80px">
+  <h1 style="color: white;text-align: center">Vote</h1>
+  {% if more_details %}
+  <form method="post" action="{% url 'VotingApp:display-candidates' %}">
+    {% csrf_token %}
+    <input type="text" style="margin-bottom: 15px" class="form-control" placeholder="voting-id" name="voting-id" value='{{voter_id}}'>
+    <input type="submit" style="margin-bottom: 15px" class="form-control" name="submit">
+  </form>
+
+  <form method="POST" action="{% url 'BlockchainApp:route_wallet_transact' %}">
+    {% csrf_token %}
+  {% for candidate in candidates %}
+    <input type="radio" id="selected_candidate" name="selected_candidate" value="{{candidate.user.aadhar_no}}">
+    <label for="selected_candidate"><b>Name : </b>{{candidate.user.username}} <b>Candidate party:</b>{{candidate.party}}</label>
+    <br>
+  {% endfor %}
+    <input type="submit" name="Vote" value="Vote">
+  </form>
+  {% else %}
+  <form method="post" action="{% url 'VotingApp:display-candidates' %}">
+    {% csrf_token %}
+    <input type="text" style="margin-bottom: 15px" class="form-control" placeholder="voting-id" name="voting-id">
+    <input type="submit" style="margin-bottom: 15px" class="form-control" name="submit">
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

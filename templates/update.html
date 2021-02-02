@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style="font-weight: 900;">Voter's Profile Update</a>
+    <a class="btn btn-danger" href="{% url 'RegistrationApp:home' %}">Registration Page</a>
+</nav>
+
+<div style="padding: 20px;width: 800px;background-color: #fe6e00;display: block;margin: auto;
+  margin-top: 80px">
+  <h1 style="color: white;text-align: center">Update Profile</h1>
+
+
+  {% if update_flag %}
+  <form method="post" action="{% url 'RegistrationApp:ok' %}">
+    {% csrf_token %}
+    <input type="text" class="form-control" placeholder="Aadhar Number" name="aadhar-no" value="{{user.aadhar_no}}">
+    <input type="submit" value="Ok">
+  </form>
+  <form method="post" action="{% url 'RegistrationApp:save-update-details' %}">
+    {% csrf_token %}
+    <input type="text" class="form-control" placeholder="Aadhar Number" name="aadhar-no" value="{{user.aadhar_no}}" hidden>
+    <input type="text" style="margin-bottom: 15px" class="form-control" placeholder="Full Name" name="full-name" value="{{user.full_name}}">
+    <input type="date" style="margin-bottom: 15px" class="form-control" placeholder="Date Of Birth" name="dob" value="{{user.date_of_birth}}">
+    <input type="text" class="form-control" placeholder="Phone Number" name="phone-no" value="{{user.phone_no}}">
+    <input type="text" style="margin-bottom: 15px" class="form-control" placeholder="Country" name="country" value="{{user.country}}">
+    <input type="text" class="form-control" placeholder="State" name="state" value="{{user.state}}">
+    <input type="text" style="margin-bottom: 15px" class="form-control" placeholder="City" name="city" value="{{user.city}}">
+    <input type="text" class="form-control" placeholder="Taluka" name="taluka" value="{{user.taluka}}">
+    <input type="submit" value="update" style="display: block;margin: auto;margin-top: 10px" class="btn btn-success">
+  </form>
+  {% else %}
+  <form method="post" action="{% url 'RegistrationApp:ok' %}">
+    {% csrf_token %}
+    <input type="text" class="form-control" placeholder="Aadhar Number" name="aadhar-no">
+    <input type="submit" style="display: block;margin: auto;margin-top: 10px" class="btn btn-success" value="Ok">
+  </form>
+
+  {% endif %}
+</div>
+{% endblock %}

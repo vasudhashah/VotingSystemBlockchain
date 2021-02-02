@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style="font-weight: 900;">Candidate's Registration</a>
+
+    <a class="btn btn-danger" href="{% url 'RegistrationApp:officer-logout' %}">Logout</a>
+</nav>
+
+<div style="padding: 20px;width: 800px;background-color: #fe6e00;display: block;margin: auto;
+  margin-top: 80px">
+  <h1 style="color: white;text-align: center">Registration</h1>
+  <form method="post" action="{% url 'CandidateApp:candidate-register-success' %}">
+    {% csrf_token %}
+    <input type="text" class="form-control" placeholder="Aadhar Number" name="aadhar-no">
+    <input type="text" class="form-control" placeholder="Candidate's Party" name="party">
+    <input type="text" class="form-control" placeholder="Standing Seat Pincode" name="standing-pincode">
+    <input type="submit"  style="display: block;margin: auto;margin-top: 10px" class="btn btn-success">
+  </form>
+</div>
+{% endblock %}

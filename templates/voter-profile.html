@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style="font-weight: 900;">{{name}}</a>
+    <a class="btn btn-danger" href="{% url 'VoterProfileApp:voter-logout' %}">Logout</a>
+</nav>
+<h1 style="color: Black;text-align: center;margin-top: 30px">Profile</h1>
+<div style="padding: 20px;width: 800px;background-color: #fe6e00;display: block;margin: auto">
+  <h1 style="color: white;text-align: center">Name: {{name}}</h1>
+  <h1 style="color: white;text-align: center">Username:  {{username}}</h1>
+  <h1 style="color: white;text-align: center">VoterId:  {{voter_id}}</h1>
+  <h1 style="color: white;text-align: center">Aadhar Number:  {{aadhar_no}}</h1>
+  <h1 style="color: white;text-align: center">Mobile Number:  {{phone_no}}</h1>
+  <h1 style="color: white;text-align: center">Date Of Birth:  {{date_of_birth}}</h1>
+  <h1 style="color: white;text-align: center">Age:  {{age}}</h1>
+  <h1 style="color: white;text-align: center">Country:  {{country}}</h1>
+  <h1 style="color: white;text-align: center">State:  {{state}}</h1>
+  <h1 style="color: white;text-align: center">city:  {{city}}</h1>
+  <h1 style="color: white;text-align: center">Taluka:  {{taluka}}</h1>
+  <h1 style="color: white;text-align: center">pincode:  {{pincode}}</h1>
+  <h1 style="color: white;text-align: center">constituency:  {{constituency}}</h1>
+  <h1 style="color: white;text-align: center">Voting Stars:  {{voting_stars}}</h1>
+  <img src="{{image.url}}" alt="dp2">
+</div>
+<a class="btn btn-danger" href="{% url 'VoterProfileApp:changepassword' %}">Change Password</a>
+{% endblock %}

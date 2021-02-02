@@ -1,0 +1,7 @@
+{% load static %}
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="text" name="aadhar_no" value="{{aadhar_no}}" hidden>
+  <input type="submit" name="picture_url" value="Take Picture">
+</form>
+<img src="{{image.url}}" alt="dp">

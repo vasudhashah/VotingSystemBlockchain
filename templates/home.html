@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style="font-weight: 900;">Home Page</a>
+    <a class="btn btn-danger" href="{% url 'RegistrationApp:login' %}">Voter's Registration</a>
+    <a class="btn btn-danger" href="{% url 'VoterProfileApp:login' %}">Voter's Profile</a>
+    <a class="btn btn-danger" href="{% url 'CandidateApp:ec-login' %}">Election Commission</a>
+    <a class="btn btn-danger" href="{% url 'VotingApp:login' %}">Voting Window</a>
+</nav>
+
+{% endblock %}

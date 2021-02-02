@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style="font-weight: 900;">Election Commsion Home</a>
+    <a class="btn btn-danger" href="{% url 'CandidateApp:candidate-register-home' %}">Candidate's Registration</a>
+    <a class="btn btn-danger" href="{% url 'CandidateApp:ec-officer-logout' %}">Logout</a>
+</nav>
+{% endblock %}
